@@ -100,10 +100,10 @@
 # alias du='du -h'
 #
 gitPush(){
-  git push $1
+  git push $1 $2 $3 $4
 }
 gitDiff(){
-  git diff $1 $2
+  git diff $1 $2 $3 $4
 }
 gitMerge(){
   git merge $1
