@@ -376,3 +376,5 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
 (ac-config-default)
 (add-hook 'LaTeX-mode-hook 'auto-complete-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+
