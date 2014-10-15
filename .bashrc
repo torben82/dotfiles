@@ -135,7 +135,7 @@ alias ls='ls -hF --color=tty'                 # classify files in colour
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
-alias emacs='echo "USE e instead of emacs you IDIOT!!!"'
+#alias emacs='echo "USE e instead of emacs you IDIOT!!!"'
 alias e='"emacs"'
 
 startGitk(){
