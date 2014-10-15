@@ -30,6 +30,7 @@
 
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
 ;  (add-hook 'latex-mode-hook 'turn-on-reftex)) ; with Emacs latex mode
+(add-hook 'LaTeX-mode-hook 'flyspell-mode) ; Enables flyspell when we're in LaTex-mode
 
 (setq reftex-enable-partial-scans t)
 (setq reftex-save-parse-info t)
@@ -375,6 +376,5 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
 (ac-config-default)
+(ac-flyspell-workaround)
 (add-hook 'LaTeX-mode-hook 'auto-complete-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-
