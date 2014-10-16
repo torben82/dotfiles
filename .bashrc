@@ -114,6 +114,10 @@ Git(){
 gitCommit(){
   git commit $1 $2
 }
+gitAppendGitIgnore(){
+  git status -s|grep ??|sed 's/??\ //' >> .gitignore
+}
+alias gAppIgnore=gitAppendGitIgnore
 alias gic=gitCommit
 alias gm=gitMerge
 alias g=Git
