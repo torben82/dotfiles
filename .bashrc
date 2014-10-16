@@ -167,13 +167,13 @@ alias gitk=startGitk
 # Some example functions:
 #
 # a) function settitle
-# settitle () 
-# { 
-#   echo -ne "\e]2;$@\a\e]1;$@\a"; 
+# settitle ()
+# {
+#   echo -ne "\e]2;$@\a\e]1;$@\a";
 # }
-# 
+#
 # b) function cd_func
-# This function defines a 'cd' replacement function capable of keeping, 
+# This function defines a 'cd' replacement function capable of keeping,
 # displaying and accessing history of visited directories, up to 10 entries.
 # To use it, uncomment it, source this file and try 'cd --'.
 # acd_func 1.0.5, 10-nov-2004
@@ -182,15 +182,15 @@ alias gitk=startGitk
 # {
 #   local x2 the_new_dir adir index
 #   local -i cnt
-# 
+#
 #   if [[ $1 ==  "--" ]]; then
 #     dirs -v
 #     return 0
 #   fi
-# 
+#
 #   the_new_dir=$1
 #   [[ -z $1 ]] && the_new_dir=$HOME
-# 
+#
 #   if [[ ${the_new_dir:0:1} == '-' ]]; then
 #     #
 #     # Extract dir N from dirs
@@ -200,21 +200,21 @@ alias gitk=startGitk
 #     [[ -z $adir ]] && return 1
 #     the_new_dir=$adir
 #   fi
-# 
+#
 #   #
 #   # '~' has to be substituted by ${HOME}
 #   [[ ${the_new_dir:0:1} == '~' ]] && the_new_dir="${HOME}${the_new_dir:1}"
-# 
+#
 #   #
 #   # Now change to the new dir and add to the top of the stack
 #   pushd "${the_new_dir}" > /dev/null
 #   [[ $? -ne 0 ]] && return 1
 #   the_new_dir=$(pwd)
-# 
+#
 #   #
 #   # Trim down everything beyond 11th entry
 #   popd -n +11 2>/dev/null 1>/dev/null
-# 
+#
 #   #
 #   # Remove any other occurence of this dir, skipping the top of the stack
 #   for ((cnt=1; cnt <= 10; cnt++)); do
@@ -226,9 +226,10 @@ alias gitk=startGitk
 #       cnt=cnt-1
 #     fi
 #   done
-# 
+#
 #   return 0
 # }
-# 
+#
 # alias cd=cd_func
 # source ~/git-completion.bash
+export EDITOR=vim
