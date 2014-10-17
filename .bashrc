@@ -233,3 +233,7 @@ alias gitk=startGitk
 # alias cd=cd_func
 # source ~/git-completion.bash
 export EDITOR=vim
+source ~/git-prompt.sh
+#PS1='\[\e[1;32m\][\u@\h \W $(__git_ps1 " (%s)")]\$\[\e[0m\] '
+GIT_PS1_SHOWCOLORHINTS=true
+PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u@\h:\W\[\e[0m\]" "\\\$ "'
