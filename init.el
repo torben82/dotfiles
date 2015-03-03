@@ -27,7 +27,6 @@
 (autoload 'reftex-mode    "reftex" "RefTeX Minor Mode" t)
 (autoload 'turn-on-reftex "reftex" "RefTeX Minor Mode" t)
 
-
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
 ;  (add-hook 'latex-mode-hook 'turn-on-reftex)) ; with Emacs latex mode
 (add-hook 'LaTeX-mode-hook 'flyspell-mode) ; Enables flyspell when we're in LaTex-mode
@@ -372,7 +371,7 @@
 
 
 ;; Auto complete Hack
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "c:/cygwin64/home/f38434/.emacs.d/lisp")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
 (ac-config-default)
