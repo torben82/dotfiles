@@ -243,6 +243,19 @@ alias gitk=startGitk
 # source ~/git-completion.bash
 export EDITOR=vim
 source ~/git-prompt.sh
+#source ~/gitStatusPrompt.sh
+git_statusPrompt(){
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    if git diff-index --quiet HEAD; then
+      echo "\[\e[1;32m\]OK\[\e[0m\]"
+   else
+      echo "\[\e[1;31m\]!!\[\e[0m\]"
+    fi
+  else
+    echo "bar"
+  fi
+}
 #PS1='\[\e[1;32m\][\u@\h \W $(__git_ps1 " (%s)")]\$\[\e[0m\] '
 GIT_PS1_SHOWCOLORHINTS=true
-PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u@\h:\W\[\e[0m\]" "\\\$ "'
+PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u@\h:\W\[\e[0m\]" "\\\$ " "{%s $(git_statusPrompt)}"'
+#PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u@\h:\W\[\e[0m\]" "\\\$ "'
