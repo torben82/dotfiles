@@ -37,6 +37,9 @@ git_statusPrompt(){
   fi
 }
 #PS1='\[\e[1;32m\][\u@\h \W $(__git_ps1 " (%s)")]\$\[\e[0m\] '
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+#GIT_PS1_SHOWUNTRACKEDFILES = true
 GIT_PS1_SHOWCOLORHINTS=true
 #PROMPT_COMMAND='__git_ps1 "\[\e[0;36m\]\u@\h:\W\[\e[0m\]" "\\\$ " "{%s $(git_statusPrompt)}"'
 #PROMPT_COMMAND='%{$fg[blue]%}%B%n@%m:%c%b%{$reset_color%}$(git_statusPrompt)%# '
