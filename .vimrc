@@ -43,15 +43,14 @@ let mapleader = ","
 " Bind nohl
 " Removes highlight of your last search
 " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-"" noremap <C-n> :nohl<CR>
-"" vnoremap <C-n> :nohl<CR>
-"" inoremap <C-n> :nohl<CR>
-
+noremap <C-n> :nohl<CR>
+vnoremap <C-n> :nohl<CR>
+inoremap <C-n> :nohl<CR>
 
 " Quicksave command
 noremap <C-Z> :update<CR>
 vnoremap <C-Z> <C-C>:update<CR>
-inoremap <C-Z> <C-O>:update<CR>
+inoremap <C-Z> :update<CR>
 
 
 " Quick quit command
@@ -228,3 +227,8 @@ map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 " mkdir -p ~/.vim/ftplugin
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 "" set nofoldenable
+" 
+" Auto-pairs
+" git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<M-b>'
