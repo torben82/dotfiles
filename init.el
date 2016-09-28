@@ -4,12 +4,37 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(LaTeX-command "pdflatex")
- '(TeX-output-view-style (quote (("^dvi$" ("^landscape$" "^pstricks$\\|^pst-\\|^psfrag$") "%(o?)dvips -t landscape %d -o && gv %f") ("^dvi$" "^pstricks$\\|^pst-\\|^psfrag$" "%(o?)dvips %d -o && gv %f") ("^dvi$" ("^a4\\(?:dutch\\|paper\\|wide\\)\\|sem-a4$" "^landscape$") "%(o?)yap %dS -paper a4r -s 0 %d") ("^dvi$" "^a4\\(?:dutch\\|paper\\|wide\\)\\|sem-a4$" "%(o?)yap %dS -paper a4 %d") ("^dvi$" ("^a5\\(?:comb\\|paper\\)$" "^landscape$") "%(o?)yap %dS -paper a5r -s 0 %d") ("^dvi$" "^a5\\(?:comb\\|paper\\)$" "%(o?)yap %dS -paper a5 %d") ("^dvi$" "^b5paper$" "%(o?)yap %dS -paper b5 %d") ("^dvi$" "^letterpaper$" "%(o?)yap %dS -paper us %d") ("^dvi$" "^legalpaper$" "%(o?)yap %dS -paper legal %d") ("^dvi$" "^executivepaper$" "%(o?)yap %dS -paper 7.25x10.5in %d") ("^dvi$" "." "%(o?)yap %dS %d") ("^pdf$" "." "xpdf -remote %s -raise %o %(outpage)") ("^html?$" "." "netscape %o"))))
+ '(TeX-output-view-style
+   (quote
+    (("^dvi$"
+      ("^landscape$" "^pstricks$\\|^pst-\\|^psfrag$")
+      "%(o?)dvips -t landscape %d -o && gv %f")
+     ("^dvi$" "^pstricks$\\|^pst-\\|^psfrag$" "%(o?)dvips %d -o && gv %f")
+     ("^dvi$"
+      ("^a4\\(?:dutch\\|paper\\|wide\\)\\|sem-a4$" "^landscape$")
+      "%(o?)yap %dS -paper a4r -s 0 %d")
+     ("^dvi$" "^a4\\(?:dutch\\|paper\\|wide\\)\\|sem-a4$" "%(o?)yap %dS -paper a4 %d")
+     ("^dvi$"
+      ("^a5\\(?:comb\\|paper\\)$" "^landscape$")
+      "%(o?)yap %dS -paper a5r -s 0 %d")
+     ("^dvi$" "^a5\\(?:comb\\|paper\\)$" "%(o?)yap %dS -paper a5 %d")
+     ("^dvi$" "^b5paper$" "%(o?)yap %dS -paper b5 %d")
+     ("^dvi$" "^letterpaper$" "%(o?)yap %dS -paper us %d")
+     ("^dvi$" "^legalpaper$" "%(o?)yap %dS -paper legal %d")
+     ("^dvi$" "^executivepaper$" "%(o?)yap %dS -paper 7.25x10.5in %d")
+     ("^dvi$" "." "%(o?)yap %dS %d")
+     ("^pdf$" "." "xpdf -remote %s -raise %o %(outpage)")
+     ("^html?$" "." "netscape %o"))))
  '(canlock-password "59a5bf0bb174ee1894a3c620eb2c3431d1f85750")
  '(case-fold-search t)
  '(current-language-environment "Latin-9")
  '(default-input-method "latin-9-prefix")
  '(global-font-lock-mode t nil (font-lock))
+ '(menu-bar-mode nil)
+ '(org-agenda-files
+   (quote
+    ("~/TG/OPsysProjectDir/notes/scriptsToWrite.org" "~/TG/OPsysProjectDir/notes/InoviceFollowupCaverion.org" "~/TG/OPsysProjectDir/notes/baselineDefinition.org" "~/TG/OPsysProjectDir/notes/TestprepTODO.org" "~/TG/OPsysProjectDir/notes/FirstDayTODO.org" "~/TG/OPsysProjectDir/notes/beforeVacationTODO.org" "~/TG/OPsysProjectDir/notes/OpsysPythonTODO.org" "~/TG/OPsysProjectDir/notes/CaverionRemaingHours.org")))
+ '(org-html-table-caption-above nil)
  '(reftex-default-bibliography (quote ("y:refrigrefs.bib")))
  '(show-paren-mode t nil (paren))
  '(tool-bar-mode nil nil (tool-bar))
@@ -334,6 +359,15 @@
 ;;  )
 ;; )
 
+;; Org mode hacks!
+(add-hook 'org-mode-hook 'flyspell-mode)      ; Enables flyspell when we're in orgmode-mode
+(add-hook 'org-mode-hook 'auto-complete-mode) ; Enables ac when we're in orgmode-mode
+;; (require 'org-bullets)
+(setq org-startup-truncated nil) ;; Wraps line in the standard Emacs way..
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "WAIT" "|" "DONE(d!)" "CANCELED(c@)"))) 
+
 ;; Python fun:
 
 (setq visible-bell t)
@@ -351,7 +385,7 @@
 (define-key global-map (kbd "C-c o") 'iedit-mode)
 
 ;; Setting global key bindings.
-(global-set-key [f3] 'toggle-menubar)                     ;; Turns menubar on and off.
+(global-set-key [f3] 'toggle-menu-bar-mode-from-frame)                     ;; Turns menubar on and off.
 (global-set-key [f5] 'flyspell-mode)
 (global-set-key [f8] 'ispell-word)
 (global-set-key [f9] 'flyspell-mode)
@@ -371,7 +405,7 @@
 
 
 ;; Auto complete Hack
-(add-to-list 'load-path "c:/cygwin64/home/f38434/.emacs.d/lisp")
+(add-to-list 'load-path "c:/cygwin64/home/tog/.emacs.d/lisp")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
 (ac-config-default)

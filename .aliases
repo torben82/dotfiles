@@ -37,7 +37,7 @@ gitCommit(){
   git commit $1 $2
 }
 gitAppendGitIgnore(){
-  git status -s|grep ??|sed 's/??\ //' >> .gitignore
+  git status -s|grep '?? '|sed 's/??\ //' >> .gitignore
 }
 gitStatus(){
   git status
