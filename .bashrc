@@ -161,8 +161,6 @@ source $HOME/.aliases
 #
 # alias cd=cd_func
 source ~/git-completion.bash
-export https_proxy=https://taproxy1.localdom.net:3128
-export http_proxy=http://taproxy1.localdom.net:3128
 export EDITOR=vim
 source ~/git-prompt.sh
 #source ~/gitStatusPrompt.sh
@@ -181,3 +179,5 @@ git_statusPrompt(){
 GIT_PS1_SHOWCOLORHINTS=true
 PROMPT_COMMAND='__git_ps1 "\[\e[0;36m\]\u@\h:\W\[\e[0m\]" "\\\$ " "{%s $(git_statusPrompt)}"'
 #PROMPT_COMMAND='__git_ps1 "\[\e[1;32m\]\u@\h:\W\[\e[0m\]" "\\\$ "'
+# Yavide alias
+alias yavide="gvim --servername yavide -f -N -u install/yavide/.vimrc"

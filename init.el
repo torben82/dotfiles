@@ -369,20 +369,20 @@
       '((sequence "TODO(t)" "WAIT" "|" "DONE(d!)" "CANCELED(c@)"))) 
 
 ;; Python fun:
-
 (setq visible-bell t)
 ; Make sure your Emacs is 24 or newer.
 (require 'package)
-(require 'json)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-; Initialize package mode along with all the installed packages
+;; (require 'json)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+;; ; Initialize package mode along with all the installed packages
 (package-initialize)
-; Enable elpy mode
-(elpy-enable)
-; Fixing a key binding bug in elpy
-(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
-; Fixing another key binding bug in iedit mode
-(define-key global-map (kbd "C-c o") 'iedit-mode)
+;; ; Enable elpy mode
+;; (elpy-enable)
+;; ; Fixing a key binding bug in elpy
+;; (define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
+;; ; Fixing another key binding bug in iedit mode
+;; (define-key global-map (kbd "C-c o") 'iedit-mode)
 
 ;; Setting global key bindings.
 (global-set-key [f3] 'toggle-menu-bar-mode-from-frame)                     ;; Turns menubar on and off.
@@ -391,7 +391,7 @@
 (global-set-key [f9] 'flyspell-mode)
 (global-set-key [f4] 'screen-lines-mode)                  ;; Toggle screen-lines-mode.
 (global-set-key [f7] 'ispell-buffer)                      ;; Stavekontrol af buffer
-(global-set-key [(control tab)] 'other-window)  ;; Switch to previously used buffer.
+(global-set-key [(control tab)] 'next-multiframe-window)  ;; Switch to previously used buffer.
 (global-set-key [(control z)] 'undo)                      ;; Simple undo.
 (global-set-key [(insert)] 'kill-buffer)                  ;; Disables overwrite mode. Kills current buffer.
 (global-set-key [(control j)] 'goto-line)                 ;; Gå til bestemt linie.
@@ -405,7 +405,7 @@
 
 
 ;; Auto complete Hack
-(add-to-list 'load-path "c:/cygwin64/home/tog/.emacs.d/lisp")
+(add-to-list 'load-path "c:/cygwin64/home/U329345/.emacs.d/lisp")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
 (ac-config-default)
