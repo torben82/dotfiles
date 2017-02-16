@@ -7,15 +7,28 @@
 " DO NOT USE <C-z> FOR SAVING WHEN PRESENTING!
 " ============================================
 
+" Rebind <Leader> key
+" I like to have it here becuase it is easier to reach than the default and
+" it is next to ``m`` and ``n`` which I use for navigating between tabs.
+let mapleader = ","
 
 " TGs HACK
-
 nnoremap ½ $
 vmap ½ $
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
+
+" Syntastick bindings
+map <leader>t :SyntasticToggleMode<CR>
+map <leader>c :SyntasticCheck<CR>
+
+" ctags navigation remaps
+nnoremap <leader>f <C-]>
+nnoremap <leader>F <C-w><]>
+" map <leader>f :tag ".expand("<cword>"))<CR>
+map <leader>F :stag ".expand("<cword>"))<CR>
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -34,10 +47,6 @@ set mouse=a  " on OSX press ALT and click
 set bs=2     " make backspace behave like normal again
 
 
-" Rebind <Leader> key
-" I like to have it here becuase it is easier to reach than the default and
-" it is next to ``m`` and ``n`` which I use for navigating between tabs.
-let mapleader = ","
 
 
 " Bind nohl
@@ -148,18 +157,55 @@ set noswapfile
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-call pathogen#infect()
+" call pathogen#infect()
 
+" Setup Vundle -- We're not using Pathogen anymore
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/.vim/bundle/Vundle.vim')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" My plugins:
+" Plugin 'powerline/powerline' 
+" set laststatus=2
+" Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'davidhalter/jedi-vim.git'
+Plugin 'tpope/vim-fugitive'
+" Plugin 'brookhong/cscope.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " ============================================================================
 " Python IDE Setup
 " ============================================================================
 
+" Syntastic settings:
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Settings for vim-powerline
 " cd ~/.vim/bundle
 " git clone git://github.com/Lokaltog/vim-powerline.git
 set laststatus=2
+" let g:miniBufExplForceSyntaxEnable = 1
 
 
 " Settings for ctrlp
