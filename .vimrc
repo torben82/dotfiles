@@ -12,13 +12,16 @@
 " it is next to ``m`` and ``n`` which I use for navigating between tabs.
 let mapleader = ","
 
-" TGs HACK
+" TG's HACK
 nnoremap ½ $
 vmap ½ $
+" Cursor settings
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
+" removes trainling whites spaces
+map <leader>a =:%s/\s\+$//e<CR>
 
 " Syntastick bindings
 map <leader>t :SyntasticToggleMode<CR>
@@ -173,7 +176,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " My plugins:
-" Plugin 'powerline/powerline' 
+" Plugin 'powerline/powerline'
 " set laststatus=2
 " Plugin 'Lokaltog/vim-powerline'
 Plugin 'vim-airline/vim-airline'
@@ -264,7 +267,7 @@ map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 ""     endif
 ""     return a:action
 "" endfunction
-"" 
+""
 "" inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 "" inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
@@ -273,7 +276,7 @@ map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 " mkdir -p ~/.vim/ftplugin
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 "" set nofoldenable
-" 
+"
 " Auto-pairs
 " git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
 let g:AutoPairsFlyMode = 0
