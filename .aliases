@@ -50,6 +50,10 @@ gitLogFancy(){
   git log --oneline --decorate
 }
 
+gitLogTree(){
+  git log --graph --oneline --decorate --all
+}
+
 alias gst=gitStatusShort
 alias gsta=gitStatus
 alias gAppIgnore=gitAppendGitIgnore
@@ -59,6 +63,7 @@ alias g=Git
 alias gd=gitDiff
 alias gp=gitPush
 alias glog=gitLogFancy
+alias glot=gitLogTree
 #alias git='echo "USE g instead of git you IDIOT!!!111"'
 
 # Misc :)
