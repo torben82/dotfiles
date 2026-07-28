@@ -102,7 +102,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+" wget -O wombat256mod.vim https://raw.githubusercontent.com/michalbachowski/vim-wombat256mod/master/colors/wombat256mod.vim
 set t_Co=256
 color wombat256mod
 
@@ -281,3 +281,4 @@ map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 " git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<M-b>'
+set clipboard=unnamedplus
